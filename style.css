@@ -1,7 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 body{
     background-image: url('stage.png');
     background-repeat: no-repeat;
     background-size: cover;
+    color: white;
 }
 #duck{
     position: absolute;
@@ -10,10 +15,32 @@ body{
 }
 
 #sky {
+    position: relative;
     width: 100vw;
     height: 100vh;
 }
 
 #sky span {
     z-index: 1;
+}
+
+#hitCounter{
+    background-color: green;
+    width: 200px;
+}
+
+#missCounter{
+    background-color: red;
+}
+
+#endScreen {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    text-align: center;
+}
+#endScreen span {
+    line-height: 40px;
+    width: 100%;
 }

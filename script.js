@@ -1,12 +1,13 @@
-var directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"]
-var duck = document.getElementById("duck");
+const directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"]
+var width = document.documentElement.clientWidth / 2;
+var height = document.documentElement.clientHeight / 2;
 
 const move = 75;
 
 function fly(direction){
     direction = direction.toLowerCase();
-    var y = document.getElementById("duck").offsetTop;
-    var x = document.getElementById("duck").offsetLeft;
+    var y = duck.offsetTop;
+    var x = duck.offsetLeft;
 
     switch(direction){
         case 'n':
@@ -37,8 +38,7 @@ function fly(direction){
             moveUp(y);
             moveLeft(x);
             break;
-    }
-       
+    }     
 }
 
 function moveUp(top){
@@ -50,7 +50,7 @@ function moveUp(top){
     }
 }
 function moveDown(top){
-    if(top < 750){
+    if(top < height){
         top = top  + move
         duck.style.top = top + "px"    
     } else {
@@ -64,7 +64,7 @@ function moveLeft(left){
     }
 }
 function moveRight(left){
-    if(left < 1500){
+    if(left < width){
         left = left  + move
         duck.style.left = left + "px"    
     }
@@ -72,6 +72,12 @@ function moveRight(left){
 
 function moveDuck(){
     setInterval(function () {
+        if (miss == 20){
+            ending("lost");
+        }
+        if (hit == 20){
+            ending("win");
+        }
         fly(directions[Math.floor(Math.random() * directions.length)])
     }, 500);
 }
@@ -89,6 +95,17 @@ function missDuck(){
     miss++
     fly(directions[Math.floor(Math.random() * directions.length)])
     document.getElementById("missCounter").innerHTML = miss
+}
+
+function ending(type){
+    endScreen.style.display = "block"
+    if(type == "win"){
+        endScreen.firstChild.innerHTML = "win"
+        endScreen.style.backgroundColor = "green"
+    } else {
+        endScreen.firstChild.innerHTML = "fail"
+        endScreen.style.backgroundColor = "red"
+    }
 }
 
 moveDuck();
