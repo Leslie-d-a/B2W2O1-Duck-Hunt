@@ -10,8 +10,9 @@ body{
 }
 #duck{
     position: absolute;
-    top: 300px;
+    top: 301px;
     left: 800px;
+    z-index: 1;
 }
 
 #sky {
@@ -24,13 +25,18 @@ body{
     z-index: 1;
 }
 
-#hitCounter{
+#hitList{
     background-color: green;
+    line-height: 60px;
     width: 200px;
+    text-align: center;
 }
 
-#missCounter{
+#missList{
     background-color: red;
+    line-height: 60px;
+    width: 200px;
+    text-align: center;
 }
 
 #endScreen {
@@ -41,6 +47,7 @@ body{
     text-align: center;
 }
 #endScreen span {
+    font-size: 30px;
     line-height: 40px;
     width: 100%;
 }

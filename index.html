@@ -9,8 +9,10 @@
 <body>
     <img onclick="hitDuck()" id="duck" src="duck.gif" alt="duck">
     <div onclick="missDuck()" id="sky">
-        <span id="hitCounter">0</span>
-        <span id="missCounter">0</span>
+        <ul>
+            <li id="hitList"><span>hits: </span><span id="hitCounter">0</span></li>
+            <li id="missList"><span>misses: </span><span id="missCounter">0</span></li>
+        </ul>
         <div id="endScreen"><span>you win</span></div>
     </div>
     <script src="script.js"></script>
